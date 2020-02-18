@@ -11,3 +11,5 @@ To check how it works quickly, use `docker-compose up -d` command. It'll:
 What is good: We don't expose 5432 port for DB service, as we do for API. Befause why should we? - We gonna query API, but we aren't gonna do it with DB. API can reach DB via internal container overlay network, and that's correct.
 
 To test that, execute `docker exec -it node-postgre-starter-express-api_1 sh` and/or `docker exec -it node-postgre-starter-postgres_1 sh` and run `ping postgres` or `ping express-api`, appropriately (hostnames here are ones assigned by Docker and equal the service names). You'll see they are reachable by 172.19.0.{2,3} without any additional things.
+
+To test API, do just `curl localhost:3000` (assuming testing on localhost; testing after deployment is different and depends on the hosting). You'll see "Hello Fake product" message.
