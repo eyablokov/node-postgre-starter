@@ -1,15 +1,10 @@
 FROM node:alpine
-EXPOSE 3000 9229
 
-WORKDIR /home/app
+EXPOSE 3000
 
-COPY package.json /home/app/
-COPY package-lock.json /home/app/
+WORKDIR /app
 
-RUN npm ci
+COPY . .
+RUN npm install --quiet
 
-COPY . /home/app
-
-RUN npm run build
-
-CMD npm run start
+ENTRYPOINT [ "npm", "start" ]
