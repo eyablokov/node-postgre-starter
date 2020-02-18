@@ -1,2 +1,8 @@
+.dockerignore
+.editorconfig
 .git
+.gitignore
+.jshintrc
+Dockerfile
+docker-compose.yml
 node_modules
